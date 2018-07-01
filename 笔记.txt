@@ -1,0 +1,146 @@
+1.ls 列举
+通配符 
+1）[]
+2）?
+3）*
+
+2.重定向
+demo 实例
+>重写
+>>追加
+ls > xxx.txt
+列表输入到txt
+more xxx.txt
+相当于cat，但是一屏一屏显示
+ls -alh /bin | more
+竖杠称为管道 输出结果不进txt，直接由more输出到屏幕
+多个命令用；隔开
+f forward 前进一页
+b backward 后退一页
+3.clear
+
+4.cd
+相对路径
+绝对路径
+cd ./A当前文件夹的A
+cd ../..上一层的上一层
+cd -返回
+cd ~家目录 jimmy
+cd /根目录
+
+5. mkdir
+mvdir 删除文件夹
+rm *.txt 删除所有txt
+rm B -r  -r为递归，递归删除，先删除里面，再删除外面，使其次次为空。
+
+6. ln 源文件 快捷方式
+ln 1.txt softwarelink.txt
+
+7. mv 转移/重命名
+ mv 原名 现在名
+8. 软硬链接
+软链接接到文件 ln -s 文件名 链接名
+硬链接接到数据 ln 文件名 链接名
+ls -lh 可以查看硬链接数 第二个数
+
+8. grep "ntfs" xxx.txt 在xxx.txt里搜索关于ntfs的
+-n 显示行
+-v 不包括“”的内容
+grep -n ""6
+grep "^ntfs" xxx.txt以ntfs开头的
+grep "ntfs$" xxx.txt以ntfs结尾的
+
+9.打包文件
+	tar -cvf test.tar *.py
+	打包 指令 名      所有py
+        解包
+	tar -xvf test.tar
+压缩与解压
+	tar -zcvf test.tar.gz *.py
+	tar -zxvf test.tar.gz *.py
+	tar -jcvf yyy.tar.bz2 *.py
+10.日历
+	cal -y 2018
+	2018年日历
+	cal -y 2018 > test.txt
+	存储到这个文件
+	date "+%Y===%m===%d"
+	以固定格式输出时间
+11.进程管理
+	ps -aus
+	进程 全部
+	kill -9 9822
+	杀死进程 必杀 第9822个程序
+12.关机 重启
+	shutdown -h now
+	立刻关机
+	shutdown -h +200
+	200分钟以后关机
+	reboot 重启
+13.df -h 文件系统使用情况
+   du    当前路径使用情况
+   ifconfig wlp3s0 172.16.7.139
+   设置ip
+   ping ip 
+   查验通信
+2.05 多用户
+	useradd shuaige -m
+	添加账户帅哥
+	userdel shuaige
+	删除账户
+	userdel -r shuaige
+	删除账户以及文件夹
+	cat /etc/passwd
+	查看是否有这个账户的密码
+	sudo passwd shuaige
+	更改帅哥密码
+	su shuaige
+	切换账户
+	whoami
+	查看账户
+	exit
+	退回账户
+	sudu -s
+	进入超级管理员账户
+	ssh 用户名@ip地址
+	进入此用户
+ctrl shift + T 新建标签
+alt 123 切换标签
+
+20180629
+1.切片
+	name[起始坐标:终止坐标+1]
+	name[起始坐标：]取到最后
+	name[起始坐标：终止坐标+1:步长]
+2.逆序,步长改成-1,末端可以省略
+	步长正数，起点最左，终点最右
+	步长负数，起点最右，终点最左
+3.names，列表的增，删，改，查；
+	names.append('悟空')排队到最后，压栈
+	names.insert(0,'八戒')插入
+	names.extend(names2)
+
+	names.pop()最后一个弹出
+	names.remove('老王')删除第一个老王
+	del names[0]	删除第一个
+	
+	切片同字符串
+	
+	if '老李' in name:
+    ...:    print("找到了")
+
+	not in 不在
+	
+	修改
+	xxxx[下标] = new值
+	names.index(change_name)
+4.字典
+	infor = {键：值，键：值}
+	添加
+	xxx[新的key] = value
+	删除
+	del xxx[key]
+	修改
+	xxxx[已经存在的key] = new_value
+	查询
+	xxxxx.get(key)	
