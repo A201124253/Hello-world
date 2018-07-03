@@ -243,7 +243,10 @@
 	修改
 	xxxx[下标] = new值
 	names.index(change_name)
-4.字典
+4.元组
+	使用()定义，除了修改都行
+5.字典
+
 	infor = {键：值，键：值}
 	添加
 	xxx[新的key] = value
