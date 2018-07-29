@@ -32,17 +32,32 @@ while True:
 			print(card_infors)
 		elif num==2:
 			#删除
+			search_flag = 0
+			search_name = input("请输入要delete的姓名:")
+			i = 0
+			for temp in card_infors:
+				if temp['name']==search_name:
+					print("找到了,and delete")
+					del card_infors[i]
+					search_flag = 1
+				i+=1
+			if search_flag==0:
+				print("查无此人")
 			
+
 		elif num==3:
+			#change
 			pass
+
 		elif num==4:#查询
 			search_flag = 0
 			search_name = input("请输入要查询的姓名:")
 			for temp in card_infors:
-				if temp['name']==search_name
-				print("找到了")
-				search_flag = 1
-				if search_flag==0
+				if temp['name']==search_name:
+					print("找到了")
+					search_flag = 1
+
+			if search_flag==0:
 				print("查无此人")
 		elif num==5:
 			print("姓名\tQQ\t微信\t地址")
