@@ -280,6 +280,8 @@ f = open("test.txt","r")
 	b追加
 2.写入文件f.write("写入内容")
 3.读取文件f.read(读取字符数)
+	f.readline 读一行
+	f.readlines 读所有行，自动换行
 4.每次操作之后关闭文件
 5.name.rfind(".")
 	找到name这个字符串中.所在的位置
