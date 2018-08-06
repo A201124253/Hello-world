@@ -1,0 +1,288 @@
+1.ls 列举
+		通配符 
+		1）[]
+		2）?
+		3）*
+
+2.重定向
+		demo 实例
+		>重写
+		>>追加
+		ls > xxx.txt
+		列表输入到txt
+		more xxx.txt
+		相当于cat，但是一屏一屏显示
+		ls -alh /bin | more
+		竖杠称为管道 输出结果不进txt，直接由more输出到屏幕
+		多个命令用；隔开
+		f forward 前进一页
+		b backward 后退一页
+3.clear
+
+4.cd
+		相对路径
+		绝对路径
+		cd ./A当前文件夹的A
+		cd ../..上一层的上一层
+		cd -返回
+		cd ~家目录 jimmy
+		cd /根目录
+
+5. mkdir
+		mvdir 删除文件夹
+		rm *.txt 删除所有txt
+		rm B -r  -r为递归，递归删除，先删除里面，再删除外面，使其次次为空。
+
+6. ln 源文件 快捷方式
+		ln 1.txt softwarelink.txt
+
+7. mv 转移/重命名
+		mv 原名 现在名
+8. 软硬链接
+		软链接接到文件 ln -s 文件名 链接名
+		硬链接接到数据 ln 文件名 链接名
+		ls -lh 可以查看硬链接数 第二个数
+
+8. grep "ntfs" xxx.txt 在xxx.txt里搜索关于ntfs的
+		-n 显示行
+		-v 不包括“”的内容
+		grep -n ""6
+		grep "^ntfs" xxx.txt以ntfs开头的
+		grep "ntfs$" xxx.txt以ntfs结尾的
+
+9.打包文件
+		tar -cvf test.tar *.py
+		打包 指令 名      所有py
+		解包
+		tar -xvf test.tar
+压缩与解压
+	tar -zcvf test.tar.gz *.py
+	tar -zxvf test.tar.gz *.py
+	tar -jcvf yyy.tar.bz2 *.py
+10.日历
+	cal -y 2018
+	2018年日历
+	cal -y 2018 > test.txt
+	存储到这个文件
+	date "+%Y===%m===%d"
+	以固定格式输出时间
+11.进程管理
+	ps -aus
+	进程 全部
+	kill -9 9822
+	杀死进程 必杀 第9822个程序
+12.关机 重启
+	shutdown -h now
+	立刻关机
+	shutdown -h +200
+	200分钟以后关机
+	reboot 重启
+13.df -h 文件系统使用情况
+   du    当前路径使用情况
+   ifconfig wlp3s0 172.16.7.139
+   设置ip
+   ping ip 
+   查验通信
+14.多用户
+	useradd shuaige -m
+	添加账户帅哥
+	userdel shuaige
+	删除账户
+	userdel -r shuaige
+	删除账户以及文件夹
+	cat /etc/passwd
+	查看是否有这个账户的密码
+	sudo passwd shuaige
+	更改帅哥密码
+	su shuaige
+	切换账户
+	whoami
+	查看账户
+	exit
+	退回账户
+	sudu -s
+	进入超级管理员账户
+	ssh 用户名@ip地址
+	进入此用户
+	ctrl shift + T 新建标签
+	alt 123 切换标签
+15.gedi和sublime 一般不用
+16.sublime中tab键用法	
+		if money>1000000
+			print("土豪")
+		tab缩进,shift tab 还原
+17.vim 编辑器之神
+	1.i插入
+	2.:wq 保存退出
+	3.默认命令模式
+		例如dd 删除所有
+		i进入编辑模式
+	4.末行模式就是最后一行
+		先从编辑模式退回命令模式 ESC
+		再输入:进入末行模式,此时后悔ESC,同样退回命令模式
+	5.i从前方插入,a从后面插入,o从下一行插入,I从行首,A从行尾,O上一行；
+	6.命令模式
+		yy:复制光标所在一行
+		4yy:复制光标所在开始的4行
+		p:粘贴
+		dd:剪切光标所在一行
+		2dd:剪切光标所在开始的两行
+		D:剪切光标一直到行末
+		d0:剪切光标一直到行首
+		x:光标开始一个个向后剪切
+		X:光标开始一个个向前剪切
+
+		h左 j下 k上 l右
+		H最上
+		M中间
+		L最下
+
+		ctrl+f向下ctrl+b向上翻一页
+		ctrl+u向上ctrl+d向下翻半屏
+		快速定位到20行:20G
+		G:快速到最后一行 gg:快速到第一行
+		
+		w:向后跳一个单词的开头
+		b:向前跳一个单词
+		dw:剪切前一个单词	
+		u:撤销刚刚的操作
+		ctrl+r:反撤销
+		
+		选中一片代码
+		v:
+		V
+		>>:向右移动代码
+		<<:向左移动代码
+		.:重复执行
+
+		{:上一片代码
+		}:下一片代码
+		
+		替换
+		r:替换一个
+		R:开启替换模式
+		
+		/hello 搜出来所有hello
+		:%s/hello/world/g 替换所有
+		11,16s/hello/world/g 替换11到16行所有
+		shift+zz:相当于:wq
+
+20180624
+1.while 循环
+	条件满足做里面的事
+2.if嵌套
+	if xxx:
+		print("---1---")
+		if xxx2:
+			fjsdlafkijla
+20180626
+1.while 嵌套
+	
+	while 条件:
+		条件满足时候做的事情1
+		条件满足时候做的事情2
+		......
+		while 条件2
+			条件2满足的时候做的事情......
+
+	end=""
+	print("*",end="")
+	输出之后不换行
+2.复合赋值运算符
+	j=j+1
+	c语言中想让j加上1的方式: j++;	++j;	j+=1;	j=j+1;
+	python中只有 j+=1
+3.制表符\t
+	加入\t可以使得输出对齐
+4.随机数random()
+	random(0,2)
+	随机输出0到2
+5.安装python anaconda3
+	
+	u may wish to edit your .bashrc to prepend the Anaconda3 install location to PATH:
+
+	export PATH=/home/jimmy/anaconda3/bin:$PATH
+
+	Thank you for installing Anaconda3!
+	需要将路径写入bashrc文件
+20180627
+1.字符串中每个字符一个字节,数字一般4个字节.存储一个字节可以存储255.
+2.输入用input,输出用print
+3.组合字符串
+	f = "==%s=="%(a+b)
+	index索引
+	string index out of range
+	越界
+4取字符串中的字符,正数从前往后,负数从后往前,最后一个是-1
+
+
+20180629
+1.切片
+	name[起始坐标:终止坐标+1]
+	name[起始坐标：]取到最后
+	name[起始坐标：终止坐标+1:步长]
+2.逆序,步长改成-1,末端可以省略
+	步长正数，起点最左，终点最右
+	步长负数，起点最右，终点最左
+3.names，列表的增，删，改，查；
+	names.append('悟空')排队到最后，压栈
+	names.insert(0,'八戒')插入
+	names.extend(names2)
+
+	names.pop()最后一个弹出
+	names.remove('老王')删除第一个老王
+	del names[0]	删除第一个
+	
+	切片同字符串
+	
+	if '老李' in name:
+    ...:    print("找到了")
+
+	not in 不在
+	
+	修改
+	xxxx[下标] = new值
+	names.index(change_name)
+4.元组
+	使用()定义，除了修改都行
+5.字典
+
+	infor = {键：值，键：值}
+	添加
+	xxx[新的key] = value
+	删除
+	del xxx[key]
+	修改
+	xxxx[已经存在的key] = new_value
+	查询
+	xxxxx.get(key)
+
+20180727
+1.函数返回
+	return a,b,c 默认为以元组形式返回
+2.函数定义
+	def 函数名():
+		pass
+	def 函数名():
+		return xxx
+	def 函数名(参数):
+		pass
+	def 函数名(参数):
+		return xxx
+3.函数的嵌套调用
+	
+
+20180803文件操作
+1.打开文件
+f = open("test.txt","r")
+	w写
+	r读
+	b追加
+2.写入文件f.write("写入内容")
+3.读取文件f.read(读取字符数)
+	f.readline 读一行
+	f.readlines 读所有行，自动换行
+4.每次操作之后关闭文件
+5.name.rfind(".")
+	找到name这个字符串中.所在的位置
+	例如name = "test.txt",此函数返回值为4
