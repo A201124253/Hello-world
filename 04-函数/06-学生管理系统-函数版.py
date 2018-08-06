@@ -1,6 +1,4 @@
-#用来保存学生数据
-stu_infos = []
-while True:
+def print_menu():
 	#1.打印功能提示
 	print("="*30)
 	print("	学生管理系统v1.o")
@@ -11,7 +9,11 @@ while True:
 	print("5. 显示所有学生信息")
 	print("0. 退出系统")
 	print("="*30)
-
+#用来保存学生数据
+stu_infos = []
+while True:
+	#1.打印功能提示
+	print_menu()
 
 	#获取功能的选择
 	key = input("请输入功能对应的数字: ")
