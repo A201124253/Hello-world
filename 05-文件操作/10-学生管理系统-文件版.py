@@ -10,11 +10,12 @@ def print_menu():
 	print("3. 修改学生信息")
 	print("4. 查询学生信息")
 	print("5. 显示所有学生信息")
+	print("6. 保存数据")
 	print("0. 退出系统")
 	print("="*30)
 
+#1 添加学生信息
 def add_stu_info():
-	#1 添加学生信息
 
 	#1.1 提示并获取学生的姓名
 	new_name = input("请输入新学生的名字：")
@@ -31,15 +32,17 @@ def add_stu_info():
 	new_info['phone'] = new_phone
 
 	stu_infos.append(new_info)
-
+	
+#2 删除指定的学生信息
 def del_stu_info():
-	#循环遍历每条info
+	#调用函数4实现查找功能
 	d_flag,d_i = search_stu_info()
 	if d_flag==1:
 		y_n = input("请确认是否删除以上信息y/n:")
 		if y_n=="y":
 			del stu_infos[d_i-1]
 
+#3 更改学生信息
 def change_stu_info():
 	#3.1 提示并获取需要修改的学生序号
 	stu_ID =int(input("请输入要修改的学生的序号："))
@@ -57,6 +60,8 @@ def change_stu_info():
 	stu_infos[stu_ID-1]['name'] = new_name
 	stu_infos[stu_ID-1]['sex'] = new_sex
 	stu_infos[stu_ID-1]['phone'] = new_phone
+
+#4 查找学生信息
 def search_stu_info():
 	search_name = input("请输入要查询或删除的学生名字：")
 	#4.1 标志位清零
@@ -80,6 +85,7 @@ def search_stu_info():
 	if flag==0:
 		print("查无此人")
 		return flag,i
+#5 显示所有学生信息
 def print_stu_info():
 	print("="*30)
 	print("学生的信息如下：")
@@ -90,7 +96,31 @@ def print_stu_info():
 	for temp_info in stu_infos:
 		print("%d	%s	%s	%s"%(i,temp_info['name'],temp_info['sex'],temp_info['phone']))
 		i+=1
+		
+#6 保存当前所有的学生信息到文件中
+def save2file():
+	f = open("backup.data","w")
+	temp = str(stu_infos) 
+	f.write(temp)	
+	
+	f.close()
+
+#恢复数据函数
+def backup_data():
+	global stu_infos
+	f = open("backup.data")
+	content = f.read()
+	temp = eval(content)
+	stu_infos = temp
+	f.close()
+
+#	print(stu_infos)
+#	a = str(type(stu_infos))
+#	print(a)
+
 def main():
+	#恢复上次的数据
+	backup_data()
 	while True:
 		#1.打印功能提示
 		print_menu()
@@ -115,6 +145,9 @@ def main():
 		elif key=='5':
 			#5 print(stu_infos)
 			print_stu_info()	
+		elif key=='6':
+			#6 保存数据到文件中
+			save2file()
 		elif key=='0':
 			break
 main()
