@@ -3,6 +3,8 @@ stu_infos = []
 
 def print_menu():
 	#1.打印功能提示
+
+	print("\n")
 	print("="*30)
 	print("	学生管理系统v1.o")
 	print("1. 添加学生信息")
@@ -13,7 +15,7 @@ def print_menu():
 	print("6. 保存数据")
 	print("0. 退出系统")
 	print("="*30)
-
+	print("\n")
 #1 添加学生信息
 def add_stu_info():
 
@@ -127,7 +129,7 @@ def main():
 
 		#获取功能的选择
 		key = input("请输入功能对应的数字: ")
-
+		print("\n")
 		#根据用户的选择，进行相应的操作
 		
 		if key=="1":
@@ -148,6 +150,7 @@ def main():
 		elif key=='6':
 			#6 保存数据到文件中
 			save2file()
+			print("数据已保存")
 		elif key=='0':
 			break
 main()
