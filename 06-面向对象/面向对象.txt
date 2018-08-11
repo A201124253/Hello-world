@@ -40,3 +40,8 @@ __str__()方法
 3. a.strip(",")
 	切除两边的逗号
 	先往两边添加，再把逗号去掉
+4.for 循环中可以加入else，表示如果没有东西可以循环，则执行下面的语句。
+	for temp in self.contains_item:
+		111
+	else:
+		222
