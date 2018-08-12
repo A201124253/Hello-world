@@ -1,0 +1,6 @@
+20180812
+1.继承
+	class Cat(object):
+object为父类，Cat为新建的子类
+2.不写小括号，默认继承object
+	class Cat(object):  ======    class Cat:
