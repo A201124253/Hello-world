@@ -5,6 +5,8 @@ class Person(object):
 	def __init__(self, name):
 		super(Person, self).__init__()
 		self.name = name
+		self.gun = None #用来保存对枪的引用
+		self.hp = 100
 
 	def bullet_in(self, clip, bullet):
 		'''把子弹装到弹夹中'''
@@ -14,6 +16,16 @@ class Person(object):
 	def clip_in(self, gun, clip):
 		#枪， 安装弹夹
 		gun.save_clip(clip)
+	
+	def pick_gun(self, gun):
+		"""老王拿起一把枪"""
+		self.gun = gun
+	
+	def __str__(self):
+		if self.gun:
+			return "%s的血量为:%d, 它有枪"%(self.name, self.hp)
+		else:
+			return "%s的血量为%d，他没枪"%(self.name, self.hp)
 
 class Gun(object):
 	"""枪类"""
@@ -92,7 +104,8 @@ def main():
 	#test 测试枪的信息
 	print(ak47)
 	#7. 老王拿枪
-
+	Peter.pick_gun(ak47)
+	print(Peter)
 	#8. 创建一个敌人 
 
 	#9. 老王开枪打敌人

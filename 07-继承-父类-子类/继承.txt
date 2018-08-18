@@ -4,3 +4,6 @@
 object为父类，Cat为新建的子类
 2.不写小括号，默认继承object
 	class Cat(object):  ======    class Cat:
+3.time 库
+	time.sleep()
+	延迟函数
