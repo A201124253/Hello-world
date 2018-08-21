@@ -24,6 +24,8 @@ class Person(object):
 	def shoot(self, enemy):
 		#枪.开火（敌人）
 		self.gun.fire(enemy)
+	def lose_blut(self, lethality):
+		self.hp -= lethality
 
 	def __str__(self):
 		if self.gun:
@@ -41,19 +43,24 @@ class Gun(object):
 	def save_clip(self, clip):
 		self.clip = clip
 
-	def fire(self, enemy):
-		#枪从弹夹中获取一发子弹，然后让这发子弹去击中敌人
-		self.clip.pop_bullet():
-		
-		#先从弹夹中取子弹
-
-		#让子弹伤害敌人
-
 	def __str__(self):
 		if self.clip:
 			return "枪的信息为:%s, %s"%(self.name, self.clip)
 		else:
 			return "枪的信息为:%s, 这把枪中没有弹夹"%(self.name)
+
+	def fire(self,enemy):
+		'''枪从弹夹中获取一发子弹，然后让这发子弹取击中敌人'''
+
+		#先从弹夹中取子弹
+		bullet_temp = self.clip.pop_bullet()
+		
+		#让这个子弹去伤害敌人
+		if bullet_temp:
+			bullet_temp.aimd(enemy)
+		else:
+			print("弹夹中没有子弹了……")
+
 class Clip(object):#Danjia = Clip
 	"""弹夹类"""
 	def __init__(self, max_num):
@@ -69,13 +76,26 @@ class Clip(object):#Danjia = Clip
 	def save_bullet(self, bullet):
 		"""将这颗子弹保存"""
 		self.bullet_list.append(bullet)
-				
-class Bullet(object):#Zidan = Bullet
-	"""弹夹类"""
-	def __init__(self, lethality):#shashangli = lethality
+	
+	def pop_bullet(self):
+		if self.bullet_list:
+			return self.bullet_list.pop()
+		else:
+			return None
+
+class Bullet(object):
+	#Zidan = Bullet
+	"""子弹类"""
+	def __init__(self, lethality):
+
+		#shashangli = lethality
 		super(Bullet, self).__init__()
 		#用来记录子弹的杀伤力
 		self.lethality = lethality
+	
+	def aimd(self, enemy):
+		'''让敌人掉血'''
+		enemy.lose_blut(self.lethality)
 
 def main():
 	"""用来控制整个程序的流程"""
@@ -84,7 +104,7 @@ def main():
 	Peter = Person ("Peter")
 
 	#2. 创建一个枪对象
-	ak47 = Gun("ak47")	
+	ak47 = Gun("ak47")  
 
 	#3. 创建一个弹夹对象
 	clip_normal = Clip(20)
@@ -127,6 +147,6 @@ def main():
 	#9. 老王开枪打敌人
 	#老王扣扳机打老宋
 	Peter.shoot(John)
-
+	print(John)
 if __name__ == '__main__':
 	main()
