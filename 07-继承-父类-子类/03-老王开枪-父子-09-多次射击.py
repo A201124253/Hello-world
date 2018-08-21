@@ -152,6 +152,8 @@ def main():
 		Peter.shoot(John)
 		time.sleep(1)
 		print(John)
-
+		print(Peter)
+		print(ak47)
+		print(clip_normal)
 if __name__ == '__main__':
 	main()
