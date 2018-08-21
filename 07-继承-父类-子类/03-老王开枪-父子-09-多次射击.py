@@ -73,7 +73,7 @@ class Clip(object):#Danjia = Clip
 		self.bullet_list = []
 	
 	def __str__(self):
-		return "弹夹状态为:%d/%d"%(len(self.bullet_list),self.max_num)
+		return "弹夹状态为:%d\t/%d"%(len(self.bullet_list),self.max_num)
 
 	def save_bullet(self, bullet):
 		"""将这颗子弹保存"""
@@ -112,31 +112,30 @@ def main():
 	clip_normal = Clip(20)
 	
 	#4. 创建一些子弹
-	bullet = Bullet(10)
+	bullet = Bullet(10)	
 	
 	#5. 老王把子弹安装到弹夹中
-	'''
+	
 	#i = 0
 	#while i<clip_normal.max_num:
-	for i in range(clip_normal.max_num):
+	for i in range(1,clip_normal.max_num+1):
 		Peter.bullet_in(clip_normal, bullet)
 		time.sleep(1)
 		str_clip_normal =str(clip_normal)
-		print("正在装弹"+str_clip_normal[7:]+'['+'#'*(i+1)+' '*(clip_normal.max_num-i-1)+']')
+		print("正在装弹"+str_clip_normal[6:]+'['+'#'*(i)+' '*(clip_normal.max_num-i)+']')
 		i+=1
-	'''
-	Peter.bullet_in(clip_normal, bullet)
+#	Peter.bullet_in(clip_normal, bullet)
 
 	#6. 老王把弹夹安装到枪中
-	#print("子弹已满，更换弹夹")
+	print("子弹已满，更换弹夹")
 	
 	Peter.clip_in(ak47, clip_normal)
 	
 	#test 测试弹夹的信息
-	#print(clip_normal)
+	print(clip_normal)
 	
 	#test 测试枪的信息
-	#print(ak47)
+	print(ak47)
 	
 	#7. 老王拿枪
 	Peter.pick_gun(ak47)
@@ -148,7 +147,11 @@ def main():
 
 	#9. 老王开枪打敌人
 	#老王扣扳机打老宋
-	Peter.shoot(John)
-	print(John)
+	for i in range(len(clip_normal.bullet_list)):
+
+		Peter.shoot(John)
+		time.sleep(1)
+		print(John)
+
 if __name__ == '__main__':
 	main()
