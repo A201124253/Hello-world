@@ -285,7 +285,9 @@ f = open("test.txt","r")
 4.每次操作之后关闭文件
 5.name.rfind(".")
 	找到name这个字符串中.所在的位置
-	例如name = "test.txt",此函数返回值为4
+	例如name = "test.txt",此函数返回值为4s
+6.利用eval函数可以将文件中的字典读出来，存成字典的格式
+	dic_a = eval(a)
 20180807
 1.把一个字符串转成它应有的样子，eval(content)
 

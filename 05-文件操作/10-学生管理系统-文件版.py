@@ -106,6 +106,7 @@ def save2file():
 	f.write(temp)	
 	
 	f.close()
+	print("数据已保存")
 
 #恢复数据函数
 def backup_data():
@@ -121,9 +122,13 @@ def backup_data():
 #	print(a)
 
 def main():
+	#设置flag，标识退出时数据是否需要保存
+	f_save_file = True
 	#恢复上次的数据
 	backup_data()
 	while True:
+		#设置flag，标识退出时数据是否需要保存
+		f_save_file = True
 		#1.打印功能提示
 		print_menu()
 
@@ -149,8 +154,11 @@ def main():
 			print_stu_info()	
 		elif key=='6':
 			#6 保存数据到文件中
+			f_save_file = False
 			save2file()
-			print("数据已保存")
+			#print("数据已保存")
 		elif key=='0':
 			break
+	if f_save_file:
+		save2file()
 main()
